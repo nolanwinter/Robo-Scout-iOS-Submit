@@ -9,34 +9,56 @@ settings =
 	{
 		-- Supported values for orientation:
 		-- portrait, portraitUpsideDown, landscapeLeft, landscapeRight
-		default = "landscapeRight",
-		supported = { "landscapeRight" }
+		default = "portrait",
+		supported = { "portrait", },
 	},
 
+	--
+	-- Android section
+	--
+	android =
+	{
+		usesPermissions =
+		{
+			"android.permission.INTERNET",
+			"android.permission.VIBRATE",
+		},
+	},
+
+	--
+	-- iOS section
+	--
 	iphone =
 	{
 		xcassets = "Images.xcassets",
 		plist =
 		{
+			UIStatusBarHidden = false,
 			UILaunchStoryboardName = "LaunchScreen",
-			ITSAppUsesNonExemptEncryption = false, -- This sample doesn't use custom encryption
 		},
 	},
 
-	tvos =
+	--
+	-- Plugins section
+	--
+	plugins =
 	{
-		xcassets = "Images.xcassets",
-		plist =
-		{
-			ITSAppUsesNonExemptEncryption = false, -- This sample doesn't use custom encryption
-		},
+
 	},
 
-	window =
+	--
+	-- Project section
+	--
+	excludeFiles =
 	{
-		titleText =
-		{
-			default = "Shape Tumbler",
-		},
+		-- Exclude unnecessary files for each platform
+		all = { "Icon.png", "Icon-*dpi.png", "Images.xcassets", },
+		android = { "LaunchScreen.storyboardc", },
+	},
+
+	splashScreen =
+	{
+		enable = true,
+		image = "Assets/app_splash.png"
 	},
 }
